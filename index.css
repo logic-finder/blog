@@ -1,0 +1,52 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+    --script-num-container-width: 80px;
+}
+
+canvas#canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+div#code-area {
+    width: 900px;
+}
+
+div#code-area div.script-line {
+    display: flex;
+    height: 30px;
+    font-family: 'Cascadia Code';
+    font-size: 20px;
+}
+
+div#code-area div.script-line div.script-num-container {
+    display: flex;
+    width: var(--script-num-container-width);
+    background-color: rgba(64, 64, 64, 0.8);
+    color: white;
+    align-items: center;
+}
+
+div#code-area div.script-line div.script-num-container p.script-num {
+    width: calc(var(--script-num-container-width) - 20px);
+    text-align: end;
+}
+
+div#code-area div.script-line div.script-txt-container {
+    display: flex;
+    width: calc(100% - var(--script-num-container-width));
+    background-color: rgba(250, 250, 250, 0.75);
+    align-items: center;
+}
+
+div#code-area div.script-line div.script-txt-container p.script-txt {
+    margin-left: 10px;
+    text-indent: var(--script-txt-indent);
+}

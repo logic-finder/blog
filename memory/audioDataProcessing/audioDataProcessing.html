@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Audio Data Processing Experiment</title>
+    </head>
+    <body>
+        <a href="../../index.html">Return to home</a>
+        <hr>
+        <h1>Experiment: Audio Data Processing</h1>
+        <hr>
+        <h2>[Step 1] Activate AudioContext</h2>
+        <button id="preparation" style="width: 300px; height: 50px; font-size: 16px">Activate</button>
+        <p>※ Web browsers require 'your actions' in order to activate AudioContext.</p>
+        <h2>[Step 2] Input an audio file to be processed</h2>
+        <input id="file" type="file">
+        <hr>
+        <h3>1. Reversed Playback</h3>
+        <button id="reverse-process">Process</button>
+        <audio id="reverse" controls></audio>
+        <h3>2. Sample Rate Modification</h3>
+        <p>This way, both 「pitch」 and 「playback speed」 are affected.</p>
+        <p>Example) input 2 ==> 2x playback speed, 1 octave high</p>
+        <input id="speed-input" type="text" placeholder="A positive number expected">
+        <button id="speed-process">Process</button>
+        <audio id="speed-control" controls></audio>
+        <h3>3. Granular Synthesis</h3>
+        <p>※ I'm not sure whether this is a correct implementation.</p>
+        <p>Unlike sample rate modification, this technique gives us a way to modify 'pitch' and "playback speed" without affecting 'playback speed' and "pitch", respectively. In other words, 「pitch shifter」 and 「time stretcher」.</p>
+        <h4>3.1. Pitch Shifter</h4>
+        <p>Example) input 0.5 ===> 1 octave low</p>
+        <input id="pitch-input" type="text" placeholder="A positive number expected">
+        <button id="pitch-process">Process</button>
+        <audio id="pitch-shifter" controls></audio>
+        <h4>3.2. Time Stretcher</h4>
+        <p>Example) input 2 ===> 2x playback speed</p>
+        <input id="time-input" type="text" placeholder="A positive number expected">
+        <button id="time-process">Process</button>
+        <audio id="time-stretcher" controls></audio>
+        <h3>4. Moving Average</h3>
+        <p>※ I'm not sure what range of frequencies are filtered by this technique, but this is my guess: above 1 / (input / 44100) Hz</p>
+        <input id="filter-input" type="text" placeholder="A positive number expected">
+        <button id="filter-process">Process</button>
+        <audio id="filter" controls></audio>
+        <script src="audioDataProcessing.js"></script>
+    </body>
+</html>
